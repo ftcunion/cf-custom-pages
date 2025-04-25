@@ -22,5 +22,19 @@
         "token": "::CLOUDFLARE_ERROR_1000S_BOX::",
         "path": "1000.html",
         "minify": true
+    },
+    {
+        "title": "Access denied",
+        "token": "The owner of this website has banned your IP address (::CLIENT_IP::) because your detected country, ::GEO::, is not allowed.",
+        "path": "country-block.html",
+        "minify": true,
+        "h1": true
+    },
+    {
+        "title": "Access denied",
+        "token": "This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. Please email the owner of this website if you think this is a mistake.",
+        "path": "waf-block.html",
+        "minify": true,
+        "h1": true
     }
 ]
