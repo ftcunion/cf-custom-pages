@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Security Check",
+        "token": "::CAPTCHA_BOX::",
+        "path": "managed-challenge.html",
+        "minify": true
+    },
+    {
+        "title": "Security Check",
+        "token": "::IM_UNDER_ATTACK_BOX::",
+        "path": "js-challenge.html",
+        "minify": true
+    },
+    {
+        "title": "Server Error",
+        "token": "::CLOUDFLARE_ERROR_500S_BOX::",
+        "path": "500.html",
+        "minify": true
+    },
+    {
+        "title": "Content Delivery Error",
+        "token": "::CLOUDFLARE_ERROR_1000S_BOX::",
+        "path": "1000.html",
+        "minify": true
+    }
+]

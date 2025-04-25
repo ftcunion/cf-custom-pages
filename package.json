@@ -1,0 +1,21 @@
+{
+  "name": "cf-custom-pages",
+  "version": "1.0.0",
+  "description": "Custom Pages for Cloudflare",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ftcunion/cf-custom-pages"
+  },
+  "author": "Matthew W. Thomas",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "html-minifier": "^4.0.0",
+    "mustache": "^4.2.0"
+  }
+}

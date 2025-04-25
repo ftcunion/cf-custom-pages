@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        .wp-block-spacer {
+            clear: both
+        }
+
+        .wp-block-site-logo {
+            box-sizing: border-box;
+            line-height: 0
+        }
+
+        .wp-block-site-logo a {
+            display: inline-block;
+            line-height: 0;
+            border-radius: inherit
+        }
+
+        .wp-block-site-logo img {
+            height: auto;
+            max-width: 100%;
+            border-radius: inherit
+        }
+
+        :root :where(.wp-block-site-logo.is-style-rounded) {
+            border-radius: 9999px
+        }
+
+        .wp-block-site-title {
+            box-sizing: border-box
+        }
+
+        .wp-block-site-title :where(a) {
+            color: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            font-style: inherit;
+            font-weight: inherit;
+            letter-spacing: inherit;
+            line-height: inherit;
+            text-decoration: inherit
+        }
+
+        .wp-block-site-tagline {
+            box-sizing: border-box
+        }
+
+        .wp-block-separator {
+            border: 0;
+            border-bottom: 2px solid;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .wp-block-separator.has-css-opacity {
+            opacity: .4
+        }
+
+        .wp-block-navigation .wp-block-navigation-item__label {
+            overflow-wrap: break-word
+        }
+
+        .wp-block-navigation {
+            position: relative;
+            --navigation-layout-justification-setting: flex-start;
+            --navigation-layout-direction: row;
+            --navigation-layout-wrap: wrap;
+            --navigation-layout-justify: flex-start;
+            --navigation-layout-align: center
+        }
+
+        .wp-block-navigation ul {
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-top: 0
+        }
+
+        .wp-block-navigation ul,
+        .wp-block-navigation ul li {
+            list-style: none;
+            padding: 0
+        }
+
+        .wp-block-navigation .wp-block-navigation-item {
+            align-items: center;
+            background-color: inherit;
+            display: flex;
+            position: relative
+        }
+
+        .wp-block-navigation .wp-block-navigation-item__content {
+            display: block
+        }
+
+        .wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content {
+            color: inherit
+        }
+
+        .wp-block-navigation :where(a),
+        .wp-block-navigation :where(a:active),
+        .wp-block-navigation :where(a:focus) {
+            text-decoration: none
+        }
+
+        .wp-block-navigation.is-vertical {
+            --navigation-layout-direction: column;
+            --navigation-layout-justify: initial;
+            --navigation-layout-align: flex-start
+        }
+
+        .wp-block-navigation__container,
+        .wp-block-navigation__responsive-close,
+        .wp-block-navigation__responsive-container,
+        .wp-block-navigation__responsive-container-content,
+        .wp-block-navigation__responsive-dialog {
+            gap: inherit
+        }
+
+        .wp-block-navigation__container {
+            align-items: var(--navigation-layout-align, initial);
+            display: flex;
+            flex-direction: var(--navigation-layout-direction, initial);
+            flex-wrap: var(--navigation-layout-wrap, wrap);
+            justify-content: var(--navigation-layout-justify, initial);
+            list-style: none;
+            margin: 0;
+            padding-left: 0
+        }
+
+        .wp-block-navigation__container:only-child {
+            flex-grow: 1
+        }
+
+        .wp-block-navigation__responsive-container {
+            bottom: 0;
+            display: none;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0
+        }
+
+        .wp-block-navigation__responsive-container :where(.wp-block-navigation-item a) {
+            color: inherit
+        }
+
+        .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content {
+            align-items: var(--navigation-layout-align, initial);
+            display: flex;
+            flex-direction: var(--navigation-layout-direction, initial);
+            flex-wrap: var(--navigation-layout-wrap, wrap);
+            justify-content: var(--navigation-layout-justify, initial)
+        }
+
+        .wp-block-navigation__responsive-container:not(.is-menu-open.is-menu-open) {
+            background-color: inherit !important;
+            color: inherit !important
+        }
+
+        @media (min-width:600px) {
+            .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+                background-color: inherit;
+                display: block;
+                position: relative;
+                width: 100%;
+                z-index: auto
+            }
+
+            .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close {
+                display: none
+            }
+        }
+
+        .wp-block-navigation__responsive-container-close,
+        .wp-block-navigation__responsive-container-open {
+            background: #0000;
+            border: 0;
+            color: currentColor;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            text-transform: inherit;
+            vertical-align: middle
+        }
+
+        .wp-block-navigation__responsive-container-close svg,
+        .wp-block-navigation__responsive-container-open svg {
+            fill: currentColor;
+            display: block;
+            height: 24px;
+            pointer-events: none;
+            width: 24px
+        }
+
+        .wp-block-navigation__responsive-container-open,
+        body .is-layout-flex {
+            display: flex
+        }
+
+        .wp-block-navigation__responsive-container-close.wp-block-navigation__responsive-container-close.wp-block-navigation__responsive-container-close,
+        .wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open {
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        @media (min-width:600px) {
+            .wp-block-navigation__responsive-container-open:not(.always-shown) {
+                display: none
+            }
+        }
+
+        .wp-block-navigation__responsive-container-close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 2
+        }
+
+        .wp-block-navigation__responsive-close {
+            width: 100%
+        }
+
+        .wp-block-navigation__responsive-close:focus {
+            outline: 0
+        }
+
+        .wp-block-navigation__responsive-dialog {
+            position: relative
+        }
+
+        .wp-block-group {
+            box-sizing: border-box
+        }
+
+        :where(.wp-block-group.wp-block-group-is-layout-constrained) {
+            position: relative
+        }
+
+        .wp-block-post-title {
+            box-sizing: border-box;
+            word-break: break-word
+        }
+
+        .wp-block-post-content {
+            display: flow-root
+        }
+
+        .wp-block-columns {
+            align-items: normal !important;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap !important
+        }
+
+        @media (min-width:782px) {
+            .wp-block-columns {
+                flex-wrap: nowrap !important
+            }
+        }
+
+        @media (max-width:781px) {
+            .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+                flex-basis: 100% !important
+            }
+        }
+
+        @media (min-width:782px) {
+            .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+                flex-basis: 0;
+                flex-grow: 1
+            }
+
+            .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis] {
+                flex-grow: 0
+            }
+        }
+
+        :where(.wp-block-columns) {
+            margin-bottom: 1.75em
+        }
+
+        .wp-block-column {
+            flex-grow: 1;
+            min-width: 0;
+            overflow-wrap: break-word;
+            word-break: break-word
+        }
+
+        :root {
+            --wp-admin-theme-color: #007cba;
+            --wp-admin-theme-color--rgb: 0, 124, 186;
+            --wp-admin-theme-color-darker-10: #006ba1;
+            --wp-admin-theme-color-darker-10--rgb: 0, 107, 161;
+            --wp-admin-theme-color-darker-20: #005a87;
+            --wp-admin-theme-color-darker-20--rgb: 0, 90, 135;
+            --wp-admin-border-width-focus: 2px;
+            --wp-block-synced-color: #7a00df;
+            --wp-block-synced-color--rgb: 122, 0, 223;
+            --wp-bound-block-color: var(--wp-block-synced-color)
+        }
+
+        @media (min-resolution:192dpi) {
+            :root {
+                --wp-admin-border-width-focus: 1.5px
+            }
+        }
+
+        :root {
+            --wp--preset--font-size--normal: 16px;
+            --wp--preset--font-size--huge: 42px
+        }
+
+        .has-text-align-center {
+            text-align: center
+        }
+
+        .items-justified-left {
+            justify-content: flex-start
+        }
+
+        :root {
+            --wp--preset--aspect-ratio--square: 1;
+            --wp--preset--aspect-ratio--4-3: 4/3;
+            --wp--preset--aspect-ratio--3-4: 3/4;
+            --wp--preset--aspect-ratio--3-2: 3/2;
+            --wp--preset--aspect-ratio--2-3: 2/3;
+            --wp--preset--aspect-ratio--16-9: 16/9;
+            --wp--preset--aspect-ratio--9-16: 9/16;
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--color--foreground: #1d3557;
+            --wp--preset--color--background: #f2f3f4;
+            --wp--preset--color--primary: #414751;
+            --wp--preset--color--secondary: #065cb4;
+            --wp--preset--color--tertiary: #cc2e28;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--font-size--small: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.238), 1rem);
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.476), 1.375rem);
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--font-size--tiny: clamp(0.8rem, 0.8rem + ((1vw - 0.2rem) * 0.143), 0.875rem);
+            --wp--preset--font-size--normal: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.238), 1.125rem);
+            --wp--preset--font-size--extra-large: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.476), 1.75rem);
+            --wp--preset--font-size--huge: clamp(2rem, 2rem + ((1vw - 0.2rem) * 0.952), 2.5rem);
+            --wp--preset--font-size--gigantic: clamp(2rem, 2rem + ((1vw - 0.2rem) * 1.429), 2.75rem);
+            --wp--preset--font-family--merriweather: Merriweather, serif;
+            --wp--preset--font-family--publicsans: Public Sans, sans-serif;
+            --wp--preset--spacing--20: 10px;
+            --wp--preset--spacing--30: 20px;
+            --wp--preset--spacing--40: 30px;
+            --wp--preset--spacing--50: clamp(30px, 5vw, 50px);
+            --wp--preset--spacing--60: clamp(30px, 7vw, 70px);
+            --wp--preset--spacing--70: clamp(50px, 7vw, 90px);
+            --wp--preset--spacing--80: clamp(70px, 10vw, 140px);
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+            --wp--custom--body--typography--line-height: 1.5;
+            --wp--custom--heading--typography--line-height: 1.2;
+            --wp--custom--margin--horizontal: 30px;
+            --wp--custom--margin--vertical: 30px;
+            --wp--custom--spacing--outer: min(4vw, 30px);
+            --wp--style--global--content-size: 826px;
+            --wp--style--global--wide-size: 1160px
+        }
+
+        :where(body) {
+            margin: 0
+        }
+
+        .wp-site-blocks {
+            padding-top: var(--wp--style--root--padding-top);
+            padding-bottom: var(--wp--style--root--padding-bottom)
+        }
+
+        .has-global-padding {
+            padding-right: var(--wp--style--root--padding-right);
+            padding-left: var(--wp--style--root--padding-left)
+        }
+
+        .has-global-padding :where(:not(.alignfull.is-layout-flow)>.has-global-padding:not(.wp-block-block, .alignfull)) {
+            padding-right: 0;
+            padding-left: 0
+        }
+
+        :where(.wp-site-blocks)>* {
+            margin-block-start: 1.2rem;
+            margin-block-end: 0
+        }
+
+        :where(.wp-site-blocks)>:first-child {
+            margin-block-start: 0
+        }
+
+        :where(.wp-site-blocks)>:last-child {
+            margin-block-end: 0
+        }
+
+        :root {
+            --wp--style--block-gap: 1.2rem
+        }
+
+        :root :where(.is-layout-flow)>:first-child {
+            margin-block-start: 0
+        }
+
+        :root :where(.is-layout-flow)>:last-child {
+            margin-block-end: 0
+        }
+
+        :root :where(.is-layout-constrained)>*,
+        :root :where(.is-layout-flow)>* {
+            margin-block-start: 1.2rem;
+            margin-block-end: 0
+        }
+
+        :root :where(.is-layout-constrained)>:first-child {
+            margin-block-start: 0
+        }
+
+        :root :where(.is-layout-constrained)>:last-child {
+            margin-block-end: 0
+        }
+
+        :root :where(.is-layout-flex) {
+            gap: 1.2rem
+        }
+
+        .is-layout-constrained>:where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+            max-width: var(--wp--style--global--content-size);
+            margin-left: auto !important;
+            margin-right: auto !important
+        }
+
+        .is-layout-constrained>.alignwide {
+            max-width: var(--wp--style--global--wide-size)
+        }
+
+        .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center
+        }
+
+        .is-layout-flex>:is(*, div) {
+            margin: 0
+        }
+
+        body {
+            background-color: var(--wp--preset--color--background);
+            color: var(--wp--preset--color--black);
+            font-family: var(--wp--preset--font-family--publicsans);
+            font-size: var(--wp--preset--font-size--normal);
+            line-height: var(--wp--custom--body--typography--line-height);
+            --wp--style--root--padding-top: 0px;
+            --wp--style--root--padding-right: var(--wp--preset--spacing--50);
+            --wp--style--root--padding-bottom: 0px;
+            --wp--style--root--padding-left: var(--wp--preset--spacing--50)
+        }
+
+        a:where(:not(.wp-element-button)) {
+            color: var(--wp--preset--color--secondary);
+            text-decoration: underline
+        }
+
+        :root :where(a:where(:not(.wp-element-button)):hover) {
+            color: var(--wp--preset--color--foreground)
+        }
+
+        h1 {
+            color: var(--wp--preset--color--foreground);
+            font-family: var(--wp--preset--font-family--merriweather);
+            font-size: var(--wp--preset--font-size--huge);
+            font-weight: var(--wp--custom--heading--typography--font-weight);
+            line-height: var(--wp--custom--heading--typography--line-height)
+        }
+
+        .has-foreground-color {
+            color: var(--wp--preset--color--foreground) !important
+        }
+
+        .has-background-background-color {
+            background-color: var(--wp--preset--color--background) !important
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important
+        }
+
+        .has-tiny-font-size {
+            font-size: var(--wp--preset--font-size--tiny) !important
+        }
+
+        :root {
+            scrollbar-gutter: stable
+        }
+
+        body,
+        html {
+            height: 100%
+        }
+
+        .wp-site-blocks {
+            overflow-y: hidden;
+            min-height: 100%
+        }
+
+        footer {
+            padding-bottom: 100vh;
+            margin-block-end: -100vh !important;
+            box-shadow: inset 0 .125rem .25rem rgb(0 0 0/.075);
+            margin-top: 2.75rem;
+            background-image: url(/wp-content/themes/ftcunion-stewart/assets/images/scale-pattern-svgo.svg);
+            background-size: 5.5rem
+        }
+
+        @media (max-width:599px) {
+            .mobile-flex~.wp-block-separator {
+                margin-block-start: 0
+            }
+
+            .mobile-flex {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center
+            }
+
+            .mobile-hide,
+            header .wp-block-spacer {
+                display: none
+            }
+
+            header+.wp-block-group {
+                margin-top: 0
+            }
+
+            .wp-block-site-title a {
+                display: inline-block;
+                overflow: clip;
+                white-space: nowrap;
+                margin: 0;
+                padding: 0
+            }
+
+            .wp-block-site-title a::before {
+                content: url(/wp-content/themes/ftcunion-stewart/assets/images/site-title-svgo.svg);
+                font-size: 0;
+                line-height: 0
+            }
+        }
+
+        :root :where(.wp-block-navigation) {
+            font-size: var(--wp--preset--font-size--normal);
+            line-height: 1.75
+        }
+
+        :root :where(.wp-block-navigation a:where(:not(.wp-element-button))) {
+            text-decoration: underline
+        }
+
+        :root :where(.wp-block-navigation a:where(:not(.wp-element-button)):hover) {
+            text-decoration: none
+        }
+
+        :root :where(.wp-block-post-title) {
+            font-family: var(--wp--preset--font-family--merriweather);
+            font-size: var(--wp--preset--font-size--huge);
+            line-height: var(--wp--custom--heading--typography--line-height);
+            margin-top: 0;
+            margin-bottom: var(--wp--custom--margin--horizontal)
+        }
+
+        :root :where(.wp-block-separator) {
+            border-width: 0 0 1px
+        }
+
+        :root :where(.wp-block-site-title) {
+            font-family: var(--wp--preset--font-family--publicsans);
+            font-size: var(--wp--preset--font-size--huge);
+            font-weight: 700;
+            text-transform: uppercase
+        }
+
+        :root :where(.wp-block-site-title a:where(:not(.wp-element-button))) {
+            text-decoration: none
+        }
+
+        :root :where(.wp-block-site-title a:where(:not(.wp-element-button)):hover) {
+            color: currentColor;
+            text-decoration: underline
+        }
+
+        :root :where(.wp-block-site-tagline) {
+            font-size: var(--wp--preset--font-size--normal);
+            margin-top: 0;
+            padding-bottom: calc(.25*var(--wp--custom--margin--horizontal))
+        }
+
+        :root :where(.wp-block-site-logo.is-style-rounded--1) {
+            border-radius: 9999px
+        }
+
+        .wp-container-core-navigation-is-layout-ae9ae7ce {
+            gap: 0;
+            flex-direction: column;
+            align-items: flex-start
+        }
+
+        .wp-container-core-columns-is-layout-28f84493 {
+            flex-wrap: nowrap
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: Merriweather;
+            font-style: normal;
+            font-weight: 400;
+            font-display: fallback;
+            src: url(https://www.ftcunion.org/wp-content/themes/ftcunion-stewart/assets/fonts/merriweather-normal-400.woff2)format("woff2")
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: "Public Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-display: fallback;
+            src: url(https://www.ftcunion.org/wp-content/themes/ftcunion-stewart/assets/fonts/publicsans-normal-400.woff2)format("woff2")
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: "Public Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-display: fallback;
+            src: url(https://www.ftcunion.org/wp-content/themes/ftcunion-stewart/assets/fonts/publicsans-normal-700.woff2)format("woff2")
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+    <title>{{ title }} &#x2d; FTC Union</title>
+    <script type="importmap"
+        id="wp-importmap">{"imports":{"@wordpress\/interactivity":"https:\/\/www.ftcunion.org\/wp-includes\/js\/dist\/script-modules\/interactivity\/index.min.js"}}</script>
+    <script type="module"
+        src="https://www.ftcunion.org/wp-includes/js/dist/script-modules/block-library/navigation/view.min.js"
+        id="@wordpress/block-library/navigation/view-js-module"></script>
+    <link rel="modulepreload"
+        href="https://www.ftcunion.org/wp-includes/js/dist/script-modules/interactivity/index.min.js"
+        id="@wordpress/interactivity-js-modulepreload">
+    <meta name="theme-color" content="#414751" />
+    <link rel="icon" href="https://www.ftcunion.org/wp-content/uploads/svg_favicon/svg-favicon.svg" size="any"
+        type="image/x-icon" />
+    <link rel="mask-icon" href="https://www.ftcunion.org/wp-content/uploads/svg_favicon/mask-icon.svg"
+        color="#000000" />
+</head>
+
+<body
+    class="wp-singular page-template-default page page-id-613 page-child parent-pageid-615 wp-custom-logo wp-embed-responsive wp-theme-stewart wp-child-theme-ftcunion-stewart">
+    <div class="wp-site-blocks">
+        <header class="wp-block-template-part">
+            <div style="height:70px" aria-hidden="true" class="wp-block-spacer"></div>
+        </header>
+        <div
+            class="wp-block-group alignwide has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+            <div
+                class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
+                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:30%">
+                    <aside class="wp-block-template-part">
+                        <div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
+                            <div class="wp-block-group mobile-flex is-layout-flow wp-block-group-is-layout-flow">
+                                <div class="is-style-rounded mobile-hide is-style-rounded--1 wp-block-site-logo"><a
+                                        href="https://www.ftcunion.org/" class="custom-logo-link" rel="home"><img
+                                            src="https://www.ftcunion.org/wp-content/uploads/2024/10/ftc-logo-svgo.svg"
+                                            class="custom-logo" alt="FTC Union" decoding="async" /></a></div>
+                                <p class="wp-block-site-title"><a href="https://www.ftcunion.org" target="_self"
+                                        rel="home">FTC Union</a></p>
+                                <p class="mobile-hide wp-block-site-tagline">NTEU Chapter 344</p>
+                                <hr
+                                    class="wp-block-separator has-css-opacity has-text-color alignwide is-style-wide mobile-hide" />
+                                <nav class="is-responsive items-justified-left is-vertical wp-block-navigation is-content-justification-left is-layout-flex wp-container-core-navigation-is-layout-ae9ae7ce wp-block-navigation-is-layout-flex"
+                                    aria-label="Navigation" data-wp-interactive="core/navigation"
+                                    data-wp-context='{"overlayOpenedBy":{"click":false,"hover":false,"focus":false},"type":"overlay","roleAttribute":"","ariaLabel":"Menu"}'>
+                                    <button aria-haspopup="dialog" aria-label="Open menu"
+                                        class="wp-block-navigation__responsive-container-open"
+                                        data-wp-on-async--click="actions.openMenuOnClick"
+                                        data-wp-on--keydown="actions.handleMenuKeydown"><svg width="24" height="24"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M5 5v1.5h14V5H5zm0 7.8h14v-1.5H5v1.5zM5 19h14v-1.5H5V19z" />
+                                        </svg></button>
+                                    <div class="wp-block-navigation__responsive-container  has-text-color has-foreground-color has-background has-background-background-color"
+                                        id="modal-2" data-wp-class--has-modal-open="state.isMenuOpen"
+                                        data-wp-class--is-menu-open="state.isMenuOpen"
+                                        data-wp-watch="callbacks.initMenu"
+                                        data-wp-on--keydown="actions.handleMenuKeydown"
+                                        data-wp-on-async--focusout="actions.handleMenuFocusout" tabindex="-1">
+                                        <div class="wp-block-navigation__responsive-close" tabindex="-1">
+                                            <div class="wp-block-navigation__responsive-dialog"
+                                                data-wp-bind--aria-modal="state.ariaModal"
+                                                data-wp-bind--aria-label="state.ariaLabel"
+                                                data-wp-bind--role="state.roleAttribute">
+                                                <button aria-label="Close menu"
+                                                    class="wp-block-navigation__responsive-container-close"
+                                                    data-wp-on-async--click="actions.closeMenuOnClick"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                        width="24" height="24" aria-hidden="true" focusable="false">
+                                                        <path
+                                                            d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z">
+                                                        </path>
+                                                    </svg></button>
+                                                <div class="wp-block-navigation__responsive-container-content"
+                                                    data-wp-watch="callbacks.focusFirstElement" id="modal-2-content">
+                                                    <ul
+                                                        class="wp-block-navigation__container is-responsive items-justified-left is-vertical wp-block-navigation">
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.ftcunion.org/"><span
+                                                                    class="wp-block-navigation-item__label">Home</span></a>
+                                                        </li>
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.ftcunion.org/news/"><span
+                                                                    class="wp-block-navigation-item__label">News &amp;
+                                                                    Events</span></a>
+                                                        </li>
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.ftcunion.org/contract/"><span
+                                                                    class="wp-block-navigation-item__label">Current
+                                                                    Contract</span></a>
+                                                        </li>
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.ftcunion.org/bylaws/"><span
+                                                                    class="wp-block-navigation-item__label">Bylaws</span></a>
+                                                        </li>
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.ftcunion.org/committees/"><span
+                                                                    class="wp-block-navigation-item__label">Committees</span></a>
+                                                        </li>
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.ftcunion.org/membership-benefits/"><span
+                                                                    class="wp-block-navigation-item__label">Membership
+                                                                    Benefits</span></a>
+                                                        </li>
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.nteu.org/dol-rights"><span
+                                                                    class="wp-block-navigation-item__label">Rights and
+                                                                    Responsibilities</span></a>
+                                                        </li>
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
+                                                            <a class="wp-block-navigation-item__content"
+                                                                href="https://www.ftcunion.org/contact-us/"><span
+                                                                    class="wp-block-navigation-item__label">Contact</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                            <hr class="wp-block-separator has-css-opacity has-text-color alignwide is-style-wide" />
+                        </div>
+                        <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+                    </aside>
+                </div>
+                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"
+                    style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;flex-basis:70%">
+                    <div class="wp-block-query is-layout-flow wp-block-query-is-layout-flow">
+                        <main class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
+                            <h1 style="margin-bottom:var(--wp--custom--margin--horizontal, 30px);"
+                                class="wp-block-post-title">{{ title }}</h1>
+                            <div
+                                class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
+                                <p>{{ token }}</p>
+                            </div>
+                        </main>
+                        <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+                        <div class="wp-block-template-part"></div>
+                        <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="wp-block-template-part">
+            <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+            <div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
+                <p class="has-text-align-center has-small-font-size has-tiny-font-size"><br> © 2024 NTEU Chapter 344<br>
+                </p>
+            </div>
+            <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+        </footer>
+    </div>
+</body>
+
+</html>
