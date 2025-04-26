@@ -6,7 +6,8 @@
             "::CAPTCHA_BOX::"
         ],
         "path": "managed-challenge.html",
-        "minify": true
+        "minify": true,
+        "h1": true
     },
     {
         "title": "Security Check",
