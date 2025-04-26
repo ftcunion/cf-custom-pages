@@ -36,5 +36,12 @@
         "path": "waf-block.html",
         "minify": true,
         "h1": true
+    },
+    {
+        "title": "Slow your roll",
+        "token": "You are being rate limited. The owner of this website has banned you temporarily from accessing this website. Please try again later.",
+        "path": "rate-limit.html",
+        "minify": true,
+        "h1": true
     }
 ]
