@@ -2,6 +2,7 @@
     {
         "title": "Security Check",
         "content": [
+            "Verify you are human by completing the action below.",
             "::CAPTCHA_BOX::"
         ],
         "path": "managed-challenge.html",
@@ -10,6 +11,7 @@
     {
         "title": "Security Check",
         "content": [
+            "Verify you are human by completing the action below.",
             "::IM_UNDER_ATTACK_BOX::"
         ],
         "path": "js-challenge.html",
