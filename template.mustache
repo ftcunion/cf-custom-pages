@@ -812,7 +812,9 @@
                             {{/h1}}
                             <div
                                 class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
-                                <p>{{ token }}</p>
+                                {{#content}}
+                                <p>{{{.}}}</p>
+                                {{/content}}
                             </div>
                         </main>
                         <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
