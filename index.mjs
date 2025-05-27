@@ -10,6 +10,9 @@ const template_views = JSON.parse(readFileSync("view.json", "utf8"));
 // Read the template file
 const template_mustache = readFileSync("template.mustache", "utf8");
 
+// Read the styles.css file
+const styles_css = readFileSync("styles.css", "utf8");
+
 // Delete and recreate the output directory
 try {
   // Attempt to remove the output directory if it exists
@@ -20,9 +23,11 @@ try {
 }
 
 // Loop through each entry in the template_views
-for (const template_view of template_views) {
+for (var template_view of template_views) {
   // Write the rendered output to a file named after the path value of the view if it exists
   if (template_view.path) {
+    // Add the styles.css content to the template view
+    template_view.css = styles_css;
     // Render the template with the current view data
     let rendered_content = Mustache.render(template_mustache, template_view);
     let file_path = `${output_dir}/${template_view.path}`;

@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node index.mjs",
+    "refresh": "node refresh.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +16,9 @@
   "author": "Matthew W. Thomas",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "extract-css": "^3.0.2",
     "html-minifier": "^4.0.0",
-    "mustache": "^4.2.0"
+    "mustache": "^4.2.0",
+    "purgecss": "^7.0.2"
   }
 }
