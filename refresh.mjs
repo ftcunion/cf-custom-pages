@@ -3,7 +3,7 @@ import extractCss from "extract-css";
 import { PurgeCSS } from "purgecss";
 
 // Download https://www.ftcunion.org use
-fetch("https://www.ftcunion.org")
+fetch("https://www.ftcunion.org/404.html")
   .then((response) => response.text())
   .then((remoteHTML) => {
     extractCss(
@@ -48,7 +48,7 @@ fetch("https://www.ftcunion.org")
         );
 
         // Remove various unnecessary properties and classes
-        html = html.replace(/ (aria-current="page"|page-id-\d+)/g, "");
+        html = html.replace(/( aria-current="page"| page-id-\d+| wp-theme-stewart| wp-child-theme-ftcunion-stewart|error404 )/g, "");
 
         // Set title to template value
         html = html.replace(
@@ -96,7 +96,17 @@ fetch("https://www.ftcunion.org")
           .purge({
             content: [{ raw: html, extension: "html" }],
             css: [{ raw: css }],
-            safelist: ["has-modal-open", "is-menu-open"],
+            fontFace: true,
+            variables: true,
+            safelist: {
+              standard: [
+                "has-modal-open",
+                "is-menu-open",
+                ":first-child",
+                ":last-child",
+                ":not",
+              ],
+            },
           })
           .then((purged) => {
             // Use the purged CSS

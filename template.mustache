@@ -17,7 +17,7 @@
         id="@wordpress/interactivity-js-modulepreload">
 </head>
 
-<body class="wp-singular page-template-default page">
+<body class="wp-embed-responsive">
     <div class="wp-site-blocks">
         <header class="wp-block-template-part">
             <div style="height:70px" aria-hidden="true" class="wp-block-spacer"></div>
@@ -69,8 +69,7 @@
                                                     data-wp-watch="callbacks.focusFirstElement" id="modal-2-content">
                                                     <ul
                                                         class="wp-block-navigation__container is-responsive items-justified-left is-vertical wp-block-navigation">
-                                                        <li
-                                                            class=" wp-block-navigation-item current-menu-item wp-block-navigation-link">
+                                                        <li class=" wp-block-navigation-item wp-block-navigation-link">
                                                             <a class="wp-block-navigation-item__content"
                                                                 href="https://www.ftcunion.org/"><span
                                                                     class="wp-block-navigation-item__label">Home</span></a>
@@ -129,20 +128,18 @@
                 </div>
                 <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"
                     style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;flex-basis:70%">
-                    <div class="wp-block-query is-layout-flow wp-block-query-is-layout-flow">
-                        <main class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-                            {{#h1}}
-                            <h1 style="margin-bottom:var(--wp--custom--margin--horizontal, 30px);"
-                                class="wp-block-post-title">{{ title }}</h1>
-                            {{/h1}}
-                            <div
-                                class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
-                                {{#content}}
-                                <p>{{{.}}}</p>
-                                {{/content}}
-                            </div>
-                        </main>
-                    </div>
+                    <main class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
+                        {{#h1}}
+                        <h1 style="margin-bottom:var(--wp--custom--margin--horizontal, 30px);"
+                            class="wp-block-post-title">{{ title }}</h1>
+                        {{/h1}}
+                        <div
+                            class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
+                            {{#content}}
+                            <p>{{{.}}}</p>
+                            {{/content}}
+                        </div>
+                    </main>
                 </div>
             </div>
         </div>
