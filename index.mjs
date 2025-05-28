@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from "fs";
 import Mustache from "mustache";
-import { minify } from "html-minifier";
+import { minify } from "minify";
 
 const output_dir = "dist";
 
@@ -34,17 +34,19 @@ for (var template_view of template_views) {
 
     // Minify the content if specified
     if (template_view.minify) {
-      rendered_content = minify(rendered_content, {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        minifyCSS: true,
-        minifyJS: true,
-      });
+      minify
+        .html(rendered_content, {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true,
+          minifyCSS: true,
+          minifyJS: true,
+        })
+        .then((minified_content) => {
+          // Write the minified content to the file
+          writeFileSync(file_path, minified_content, { encoding: "utf8" });
+        });
     }
-
-    // Write the rendered content to the specified file path
-    writeFileSync(file_path, rendered_content);
   }
 }
