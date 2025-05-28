@@ -22,6 +22,10 @@ try {
   console.error("Error creating output directory:", error);
 }
 
+// Create a string to store html for an index file
+let index_html =
+  '<!DOCTYPE html><html lang=en-US><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>CF Pages Index &#x2d; FTC Union</title><ul>';
+
 // Loop through each entry in the template_views
 for (var template_view of template_views) {
   // Write the rendered output to a file named after the path value of the view if it exists
@@ -48,5 +52,12 @@ for (var template_view of template_views) {
           writeFileSync(file_path, minified_content, { encoding: "utf8" });
         });
     }
+
+    // Add a link to the index.html file
+    index_html += `<li><a href="./${template_view.path}">${template_view.path}</a>: ${template_view.title}</li>`;
   }
 }
+
+// Write the index.html file
+index_html += "</ul>";
+writeFileSync(`${output_dir}/index.html`, index_html, { encoding: "utf8" });
