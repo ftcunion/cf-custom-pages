@@ -5,8 +5,8 @@
   "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "build": "node index.mjs",
-    "refresh": "node refresh.mjs",
+    "build": "node run/build.mjs",
+    "refresh": "node run/refresh.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

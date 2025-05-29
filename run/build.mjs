@@ -2,16 +2,17 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync } from "fs";
 import Mustache from "mustache";
 import { minify } from "minify";
 
+const template_dir = "template";
 const output_dir = "dist";
 
 // Read the view.json file and parse it
 const template_views = JSON.parse(readFileSync("view.json", "utf8"));
 
 // Read the template file
-const template_mustache = readFileSync("template.mustache", "utf8");
+const template_mustache = readFileSync(`${template_dir}/template.mustache`, "utf8");
 
 // Read the styles.css file
-const styles_css = readFileSync("styles.css", "utf8");
+const styles_css = readFileSync(`${template_dir}/styles.css`, "utf8");
 
 // Delete and recreate the output directory
 try {

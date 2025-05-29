@@ -2,6 +2,8 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync } from "fs";
 import extractCss from "extract-css";
 import { PurgeCSS } from "purgecss";
 
+const template_dir = "template";
+
 // Download https://www.ftcunion.org use
 fetch("https://www.ftcunion.org/404.html")
   .then((response) => response.text())
@@ -134,11 +136,11 @@ fetch("https://www.ftcunion.org/404.html")
                 css = purged[0].css;
 
                 // Write the extracted CSS to a file, overwriting existing file
-                writeFileSync("styles.css", css, { encoding: "utf8" });
+                writeFileSync(`${template_dir}/styles.css`, css, { encoding: "utf8" });
               });
 
             // Write the extracted HTML to a files, overwriting existing files
-            writeFileSync("template.mustache", html, { encoding: "utf8" });
+            writeFileSync(`${template_dir}/template.mustache`, html, { encoding: "utf8" });
           }
         );
       }
