@@ -2,7 +2,7 @@
   "name": "cf-custom-pages",
   "version": "1.0.0",
   "description": "Custom Pages for Cloudflare",
-  "main": "index.mjs",
+  "main": "run/build.mjs",
   "type": "module",
   "scripts": {
     "build": "node run/build.mjs",
