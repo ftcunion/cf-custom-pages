@@ -6,6 +6,8 @@ Cloudflare supports [custom error pages](https://developers.cloudflare.com/rules
 
 This project applies post-processing to our 404 error page at [the FTC Union WordPress website](https://www.ftcunion.org) to clean out unnecessary styles and other references so that they are not too heavy. It then converts this processed page into a [mustache](https://mustache.github.io/) template that can be used to generate a complete set of custom error pages.
 
+The current implementation relies on the [perfmatters](https://perfmatters.io?ref=1523) plugin for WordPress to remove links to RSS feeds, RSD, xmlrpc, and other unnecessary resources from the WordPress page. If you want to use this project without perfmatters, you will want to add some additional regex rules to `run/refresh.mjs`.
+
 These custom error pages are hosted on GitHub Pages at [ftcunion.github.io/cf-custom-pages](https://ftcunion.github.io/cf-custom-pages/).
 
 ## Installation
