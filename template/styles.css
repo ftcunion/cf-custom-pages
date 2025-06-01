@@ -540,8 +540,8 @@ h1.has-background {
     --wp--preset--font-size--tiny: clamp(0.8rem, 0.8rem + ((1vw - 0.2rem) * 0.143), 0.875rem);
     --wp--preset--font-size--normal: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.238), 1.125rem);
     --wp--preset--font-size--huge: clamp(2rem, 2rem + ((1vw - 0.2rem) * 0.952), 2.5rem);
-    --wp--preset--font-family--merriweather: Merriweather, serif;
-    --wp--preset--font-family--publicsans: Public Sans, system-ui, sans-serif;
+    --wp--preset--font-family--merriweather: Merriweather, Charter, Bitstream Charter, Cambria, Times New Roman, Times, serif;
+    --wp--preset--font-family--publicsans: Public Sans, Libre Franklin, SF Pro Text, Franklin Gothic Book, source-sans-pro, system-ui, sans-serif;
     --wp--preset--spacing--50: clamp(30px, 5vw, 50px);
     --wp--custom--body--typography--line-height: 1.5;
     --wp--custom--heading--typography--line-height: 1.2;
@@ -774,28 +774,4 @@ h1 {
     top: 5px;
     width: auto;
     z-index: 100000;
-}
-
-@font-face {
-    font-family: Merriweather;
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('https://www.ftcunion.org/wp-content/themes/ftcunion-stewart/assets/fonts/merriweather-normal-400.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: "Public Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('https://www.ftcunion.org/wp-content/themes/ftcunion-stewart/assets/fonts/publicsans-normal-400.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: "Public Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url('https://www.ftcunion.org/wp-content/themes/ftcunion-stewart/assets/fonts/publicsans-normal-700.woff2') format('woff2');
 }
