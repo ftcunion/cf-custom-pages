@@ -307,6 +307,7 @@ footer {
 }
 
 .wp-block-site-title a {
+    vertical-align: top;
     white-space: nowrap;
     margin: 0;
     padding: 0;
