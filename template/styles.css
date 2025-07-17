@@ -326,7 +326,7 @@ footer {
     background-size: 5.5rem
 }
 
-@media (width<=599px) {
+@media (width<600px) {
     header .wp-block-spacer {
         display: none
     }
