@@ -537,7 +537,6 @@ h1.has-background {
     --wp--preset--color--background: #f2f3f4;
     --wp--preset--color--secondary: #065cb4;
     --wp--preset--font-size--small: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.238), 1rem);
-    --wp--preset--font-size--tiny: clamp(0.8rem, 0.8rem + ((1vw - 0.2rem) * 0.143), 0.875rem);
     --wp--preset--font-size--normal: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.238), 1.125rem);
     --wp--preset--font-size--huge: clamp(2rem, 2rem + ((1vw - 0.2rem) * 0.952), 2.5rem);
     --wp--preset--font-family--merriweather: Merriweather, Charter, Bitstream Charter, Cambria, Times New Roman, Times, serif;
@@ -689,10 +688,6 @@ h1 {
 
 .has-small-font-size {
     font-size: var(--wp--preset--font-size--small) !important;
-}
-
-.has-tiny-font-size {
-    font-size: var(--wp--preset--font-size--tiny) !important;
 }
 
 :root :where(.wp-block-navigation) {
