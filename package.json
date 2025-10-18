@@ -17,7 +17,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "extract-css": "^3.0.2",
-    "minify": "^14.0.0",
+    "minify": "^14.1.0",
     "mustache": "^4.2.0",
     "purgecss": "^7.0.2"
   }
