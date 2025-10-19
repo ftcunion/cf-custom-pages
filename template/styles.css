@@ -92,18 +92,6 @@ button.wp-block-navigation-item__content {
     flex-grow: 1
 }
 
-@keyframes overlay-menu__fade-in-animation {
-    0% {
-        opacity: 0;
-        transform: translateY(.5em)
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0)
-    }
-}
-
 .wp-block-navigation__responsive-container {
     bottom: 0;
     display: none;
@@ -137,13 +125,6 @@ button.wp-block-navigation-item__content {
     overflow: auto;
     padding: clamp(1rem, var(--wp--style--root--padding-top), 20rem) clamp(1rem, var(--wp--style--root--padding-right), 20rem) clamp(1rem, var(--wp--style--root--padding-bottom), 20rem) clamp(1rem, var(--wp--style--root--padding-left), 20rem);
     z-index: 100000
-}
-
-@media not (prefers-reduced-motion) {
-    .wp-block-navigation__responsive-container.is-menu-open {
-        animation: overlay-menu__fade-in-animation .1s ease-out;
-        animation-fill-mode: forwards
-    }
 }
 
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
@@ -360,6 +341,32 @@ footer {
     }
 }
 
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+    font-size: var(--wp--preset--font-size--extra-large);
+    gap: .5rem;
+    font-weight: 700
+}
+
+.wp-block-navigation__responsive-container.is-menu-open a {
+    text-decoration: none
+}
+
+@media not (prefers-reduced-motion) {
+    .wp-block-navigation__responsive-container.is-menu-open {
+        animation: .3s ease-in-out forwards overlay-menu__custom-fade-in-animation
+    }
+}
+
+@keyframes overlay-menu__custom-fade-in-animation {
+    0% {
+        transform: translate(100vw)
+    }
+
+    to {
+        transform: translateY(0)
+    }
+}
+
 .wp-block-spacer {
     clear: both
 }
@@ -539,6 +546,7 @@ h1.has-background {
     --wp--preset--color--secondary: #065cb4;
     --wp--preset--font-size--small: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.238), 1rem);
     --wp--preset--font-size--normal: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.238), 1.125rem);
+    --wp--preset--font-size--extra-large: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.476), 1.75rem);
     --wp--preset--font-size--huge: clamp(2rem, 2rem + ((1vw - 0.2rem) * 0.952), 2.5rem);
     --wp--preset--font-family--merriweather: Merriweather, Charter, Bitstream Charter, Cambria, Times New Roman, Times, serif;
     --wp--preset--font-family--publicsans: Public Sans, Libre Franklin, SF Pro Text, Franklin Gothic Book, source-sans-pro, system-ui, sans-serif;
@@ -678,12 +686,12 @@ h1 {
     font-size-adjust: ex-height 0.553
 }
 
-.has-foreground-color {
-    color: var(--wp--preset--color--foreground) !important;
+.has-background-color {
+    color: var(--wp--preset--color--background) !important;
 }
 
-.has-background-background-color {
-    background-color: var(--wp--preset--color--background) !important;
+.has-foreground-background-color {
+    background-color: var(--wp--preset--color--foreground) !important;
 }
 
 .has-small-font-size {
