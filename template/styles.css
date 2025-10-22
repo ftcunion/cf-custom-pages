@@ -548,7 +548,7 @@ h1.has-background {
     --wp--preset--font-size--normal: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.238), 1.125rem);
     --wp--preset--font-size--extra-large: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.476), 1.75rem);
     --wp--preset--font-size--huge: clamp(2rem, 2rem + ((1vw - 0.2rem) * 0.952), 2.5rem);
-    --wp--preset--font-family--merriweather: Merriweather, Charter, Bitstream Charter, Cambria, Times New Roman, Times, serif;
+    --wp--preset--font-family--merriweather: Merriweather, New York Small, Charter, Bitstream Charter, Cambria, Times New Roman, Times, serif;
     --wp--preset--font-family--publicsans: Public Sans, Libre Franklin, SF Pro Text, Franklin Gothic Book, source-sans-pro, system-ui, sans-serif;
     --wp--preset--spacing--50: clamp(30px, 5vw, 50px);
     --wp--custom--heading--typography--line-height: 1.2;
